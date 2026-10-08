@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Event Registration</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#eef2f7; display:flex; justify-content:center; padding:30px; }
+    .card { background:#fff; width:100%; max-width:600px; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.15); }
+    h1 { color:#1a3c6e; margin-top:0; }
+    label { display:block; margin-top:14px; font-weight:bold; }
+    input { width:100%; padding:9px; margin-top:4px; box-sizing:border-box; }
+    button { margin-top:20px; padding:12px 24px; background:#1a3c6e; color:#fff; border:none; border-radius:6px; font-size:16px; cursor:pointer; }
+    #msg { margin-top:16px; color:green; font-weight:bold; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Tech Fest 2026</h1>
+    <p><b>Event:</b> DevOps Workshop</p>
+    <p>A hands-on workshop on Git, Docker, Kubernetes and Jenkins CI/CD pipelines for students.</p>
+
+    <label>Student Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label>Register Number</label>
+    <input type="text" id="reg" placeholder="Enter your register number">
+
+    <label>Department</label>
+    <input type="text" id="dept" placeholder="Enter your department">
+
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <label>Event Date</label>
+    <input type="date" id="date">
+
+    <button onclick="register()">Register</button>
+    <p id="msg"></p>
+  </div>
+
+  <script>
+    function register() {
+      var name = document.getElementById('name').value;
+      var reg = document.getElementById('reg').value;
+      var dept = document.getElementById('dept').value;
+      var email = document.getElementById('email').value;
+      var date = document.getElementById('date').value;
+      var msg = document.getElementById('msg');
+      if (!name || !reg || !dept || !email || !date) {
+        msg.style.color = 'red';
+        msg.innerText = 'Please fill in all the fields.';
+        return;
+      }
+      msg.style.color = 'green';
+      msg.innerText = 'Thank you ' + name + '! You are registered for the DevOps Workshop on ' + date + '.';
+    }
+  </script>
+</body>
+</html>
